@@ -38,7 +38,7 @@ jobs:
 
     env:
       MODEL: ${{ inputs.model || 'qwen2.5-coder:1.5b' }}
-      MODEL_DIGEST: "d7372fd828518a4d38b1eb196c673c31a85f2ed302b3d1e406c4c2d1b64a0668"
+      MODEL_DIGEST: "bc04f7197d2fd9741bff9713201e19b0b6083002bd00589cae2767bcdf24d808"
 
     steps:
       - name: Checkout repository

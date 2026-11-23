@@ -19,6 +19,15 @@ WORKFLOWS_DIR = Path(".github/workflows")
 TIER2_WORKFLOW = WORKFLOWS_DIR / "parity-tier2.yml"
 
 
+def test_smoke_ollama_model_manifest_digest() -> None:
+    """The default Ollama model manifest pin must match the pulled manifest."""
+    workflow = WORKFLOWS_DIR / "smoke-ollama.yml"
+    content = workflow.read_text()
+    assert 'qwen2.5-coder:1.5b' in content
+    assert 'bc04f7197d2fd9741bff9713201e19b0b6083002bd00589cae2767bcdf24d808' in content
+    assert 'd7372fd828518a4d38b1eb196c673c31a85f2ed302b3d1e406c4c2d1b64a0668' not in content
+
+
 def _load_workflow() -> dict:
     """Parse the Tier 2 workflow YAML."""
     try:
